@@ -24,6 +24,7 @@ require_once('vendor/autoload.php');
 
 //Create an instance of the Base class
 $f3 = Base::instance();
+$f3->set('colors', array('pink', 'green', 'blue'));
 
 //Turn on Fat-Free error reporting
 $f3->set('DEBUG', 3);
@@ -46,7 +47,7 @@ $f3->route('GET /order', function()
 
 });
 
-$f3->route('POST /order2', function()
+$f3->route('GET /order2', function()
 {
     $_SESSION['animal'] = $_POST['animal'];
 //    echo"<h1>my Pets</h1><br><p><a href='order'>Order a pet</a></p>";
