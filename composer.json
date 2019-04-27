@@ -1,0 +1,12 @@
+{
+  "name" : "/328/pets3",
+  "authors" : [
+    {
+      "name": "Robert Hill",
+      "email":"rhill34@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
