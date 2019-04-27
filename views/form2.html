@@ -5,14 +5,16 @@
     <title>Form 2</title>
 </head>
 <body>
-<label for="color">Color:</label>
-<select class="form-control" name="color" id="color">
-    <option>--Select a color--</option>
-    <repeat group="{{ @colors }}"
-            key="{{ @colors }}"
-            value="{{ @colorV }}">
-        <option>{{ @colorV }}</option>
-    </repeat>
-</select>
+<form action="#" method="post" class="form-horizontal">
+    <label for="color">Color:</label>
+    <select class="form-control" name="color" id="color">
+        <option>--Select a color--</option>
+        <repeat group="{{ @colors }}"
+                key="{{ @colors }}"
+                value="{{ @colorV }}">
+            <option>{{ @colorV }}</option>
+        </repeat>
+    </select>
+</form>
 </body>
 </html>
