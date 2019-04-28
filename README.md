@@ -257,7 +257,7 @@ Next, we will modify the forms to display the errors. We will also make the form
 
 2\. Make the color drop-down sticky. If the option that we are currently displaying (@colorOption) is the same as the color the user selected (@color), then we display "selected" in the option tag.  
 
-<pre>![](file:///C:/Users/rhill/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)![](file:///C:/Users/rhill/AppData/Local/Temp/msohtmlclip1/01/clip_image006.png)<!-- Color -->  
+<!-- Color -->  
 
 <label class="col-sm-1 control-label"  
 
