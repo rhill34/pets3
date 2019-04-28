@@ -7,10 +7,15 @@
 <body>
 <h1>Animal</h1>
 <form action="#" method="post" class="form-horizontal">
-    <label>
-        Animal
-        <input type="text" id="" name="animal">
+    <label for="animal">
+        <h2>Animal</h2>
     </label>
+        <check if="{{ @errors['animal']}}">
+            <p>{{@errors['animal']}}</p>
+        </check>
+
+        <input type="text" id="animal" name="animal" placeholder="{{@errors['animal']}}">
+
     <input type="submit" value="Next">
 </form>
 </body>

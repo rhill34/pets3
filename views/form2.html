@@ -5,16 +5,30 @@
     <title>Form 2</title>
 </head>
 <body>
+<div class="col-sm-3">
+    <check if="{{ isset(@errors['color'])}}">
+        <p>{{ @errors['color'] }}</p>
+    </check>
+</div>
 <form action="#" method="post" class="form-horizontal">
-    <label for="color">Color:</label>
+    <label class="col-sm-1 control-label" for="color">Pet Color:</label>
+    <div class="col-sm-3">
     <select class="form-control" name="color" id="color">
+            <check if="{{ @errors['color']}}">
+                <p>{{@errors['color']}}</p>
+            </check>
         <option>--Select a color--</option>
         <repeat group="{{ @colors }}"
                 key="{{ @colors }}"
-                value="{{ @colorV }}">
-            <option>{{ @colorV }}</option>
+                value="{{ @colorOption }}">
+            <option>
+                <check if="{{ @colorOption == @color}}">selected</check>
+                {{ @colorOption }}
+            </option>
         </repeat>
     </select>
+    </div>
+
     <input type="submit" value="Next">
 </form>
 </body>

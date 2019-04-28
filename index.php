@@ -49,7 +49,7 @@ $f3->route('GET|POST /order',
             $_SESSION['animal'] = $animal;
             $f3->reroute('/order2');
         }else {
-            $f3->set("errors['animal']", "Please enter an animal.");
+            $f3->set("errors['animal']", "Please enter a valid animal.");
         }
     }
     //Display a view
