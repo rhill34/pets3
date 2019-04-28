@@ -19,6 +19,8 @@ error_reporting(E_ALL);
 //Require the autoload file
 require_once('vendor/autoload.php');
 
+//Require the business logic
+require_once ('model/validation-functions.php');
 ////Include static head
 //include('views/head.html');
 
@@ -39,8 +41,18 @@ $f3->route('GET /', function()
 
 });
 
-$f3->route('GET|POST /order', function()
-{
+$f3->route('GET|POST /order',
+    function($f3){
+    if(isset($_POST['animal'])) {
+
+        $animal = $_POST['animal'];
+        if(validText($animal)){
+            $_SESSION['animal'] = $animal;
+            $f3->reroute('/order2');
+        }else {
+            $f3->set("errors['animal']", "Please enter an animal.");
+        }
+    }
     //Display a view
     $view = new Template();
     echo $view->render('views/form1.html');
@@ -49,7 +61,7 @@ $f3->route('GET|POST /order', function()
 
 $f3->route('GET|POST /order2', function()
 {
-    $_SESSION['animal'] = $_POST['animal'];
+//    $_SESSION['animal'] = $_POST['animal'];
 //    echo"<h1>my Pets</h1><br><p><a href='order'>Order a pet</a></p>";
 //    print_r['animal'];
 //    //Display a view
