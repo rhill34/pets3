@@ -44,7 +44,6 @@ $f3->route('GET /', function()
 $f3->route('GET|POST /order',
     function($f3){
     if(isset($_POST['animal'])) {
-
         $animal = $_POST['animal'];
         if(validText($animal)){
             $_SESSION['animal'] = $animal;
@@ -59,15 +58,20 @@ $f3->route('GET|POST /order',
 
 });
 
-$f3->route('GET|POST /order2', function()
-{
-//    $_SESSION['animal'] = $_POST['animal'];
-//    echo"<h1>my Pets</h1><br><p><a href='order'>Order a pet</a></p>";
-//    print_r['animal'];
-//    //Display a view
-    $view = new Template();
-    echo $view->render('views/form2.html');
-
+$f3->route('GET|POST /order2',
+      function($f3){
+        if(isset($_POST['color'])) {
+            $color = $_POST['color'];
+            if(validColor($color)){
+                $_SESSION['color'] = $color;
+                $f3->reroute('/results');
+            }else {
+                $f3->set("errors['color']", "Please enter a color.");
+            }
+        }
+          //Display a view
+          $view = new Template();
+          echo $view->render('views/form2.html');
 });
 //Define a Lunch route with a parameter
 $f3->route('GET /@animal', function($f3,$params)
@@ -100,10 +104,10 @@ $f3->route('GET /@animal', function($f3,$params)
     }
 });
 
-$f3->route('POST /results', function()
+$f3->route('GET|POST /results', function()
 {
-    $_SESSION['color'] = $_POST['color'];
-    print_r($_SESSION);
+//    $_SESSION['color'] = $_POST['color'];
+//    print_r($_SESSION);
     //Display a view
     $view = new Template();
     echo $view->render('views/results.html');
